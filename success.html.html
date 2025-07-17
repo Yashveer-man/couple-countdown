@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Success!</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <h2>Your countdown is ready 🎉</h2>
+  <p>Copy the link below and share it privately:</p>
+  <input id="link" readonly/>
+  <button onclick="navigator.clipboard.writeText(link.value)">Copy</button>
+
+  <script>
+  const slug = new URLSearchParams(location.search).get("slug");
+  const url = location.origin + "/countdown.html#" + slug;
+  document.getElementById("link").value = url;
+  </script>
+</body>
+</html>

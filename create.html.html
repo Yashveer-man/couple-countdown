@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Create Countdown</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <h2>Create your Couple Countdown</h2>
+  <form id="form">
+    <label>Names (e.g. Emma & Leo)<br/>
+      <input name="names" required/>
+    </label><br/>
+    <label>Special date<br/>
+      <input type="date" name="date" required/>
+    </label><br/>
+    <label>Upload a photo<br/>
+      <input type="file" accept="image/*" id="file" required/>
+    </label><br/>
+    <button type="submit">Pay $3 with Stripe</button>
+  </form>
+
+  <script>
+  const stripe = Stripe("pk_live_YOUR_STRIPE_PUBLISHABLE_KEY");
+  const form = document.getElementById('form');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const file = document.getElementById('file').files[0];
+    const reader = new FileReader();
+    reader.onload = async () => {
+      const { names, date } = Object.fromEntries(new FormData(form));
+      const slug = Math.random().toString(36).slice(2,8);
+      // store photo as base64
+      localStorage.setItem(slug, JSON.stringify({names, date, img: reader.result}));
+
+      const { session } = await fetch("https://api.stripe.com/v1/checkout/sessions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          mode: "payment",
+          success_url: location.origin + "/success.html?slug=" + slug,
+          cancel_url: location.origin,
+          line_items: [{ price: "price_YOUR_PRICE_ID", quantity: 1 }]
+        })
+      }).then(r => r.json());
+
+      stripe.redirectToCheckout({ sessionId: session.id });
+    };
+    reader.readAsDataURL(file);
+  });
+  </script>
+</body>
+</html>
