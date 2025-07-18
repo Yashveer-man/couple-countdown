@@ -1,7 +1,7 @@
 body{
   margin:0;
   font-family:system-ui;
-  background:url('bg.jpg') center/cover fixed;
+  background:url("bg.jpg") center/cover fixed;
   color:#fff;
   display:flex;
   align-items:center;
