@@ -1,5 +1,22 @@
-body{margin:0;font-family:system-ui;background:#ffeef8;display:flex;align-items:center;justify-content:center;height:100vh;flex-direction:column;text-align:center}
-.btn{background:#ff4d94;color:#fff;padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:bold;margin-top:20px;display:inline-block}
-#card{max-width:320px}
-#photo{width:100%;border-radius:12px}
-h1,h2{margin:8px 0}
+body{
+  margin:0;
+  font-family:system-ui;
+  background:url('bg.jpg') center/cover fixed;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  flex-direction:column;
+  text-align:center;
+}
+.btn{
+  background:#ff4d94;
+  color:#fff;
+  padding:12px 28px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:20px;
+  display:inline-block;
+}
