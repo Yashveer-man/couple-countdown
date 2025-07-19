@@ -1,7 +1,36 @@
+/* ONE background only */
 body{
   margin:0;
   font-family:system-ui;
-  background:url("bg.jpg") center/cover fixed;
+  background:url('hero.jpg') center/cover fixed;
   color:#fff;
 }
-.btn{background:#ff4d94;color:#fff;padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:bold;margin-top:20px;display:inline-block}
+
+/* Hero fills the first screen */
+#hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  text-shadow:0 0 4px #000;
+}
+
+#how{
+  padding:40px;
+  text-align:center;
+  background:#fff;
+  color:#333;
+}
+
+.btn{
+  background:#ff4d94;
+  color:#fff;
+  padding:14px 32px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:20px;
+  display:inline-block;
+}
