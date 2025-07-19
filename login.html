@@ -6,27 +6,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
     body{margin:0;font-family:system-ui;background:url('ocean.jpg') center/cover fixed;color:#fff}
-    .card{background:rgba(0,0,0,.45);padding:40px;border-radius:12px;max-width:360px;margin:12vh auto 0;text-align:center}
+    .card{background:rgba(0,0,0,.45);padding:40px;border-radius:12px;max-width:360px;margin:12vh auto 0;text-align:center;position:relative}
     h1{margin-bottom:30px}
     input{width:100%;padding:10px;margin:8px 0;border:none;border-radius:6px}
     .btn{background:#ff4d94;color:#fff;border:none;padding:12px 28px;border-radius:30px;width:100%;cursor:pointer;font-weight:bold}
     .social{margin-top:20px}
     .social img{height:32px;margin:0 8px;cursor:pointer}
     a{color:#fff}
-    /* White-circle back-arrow */
+    /* Arrow inside the card */
     .back-btn{
-      position:fixed;
-      top:20px;
-      left:20px;
+      position:absolute;
+      top:10px;
+      left:10px;
       background:#fff;
       color:#333;
       border:none;
       border-radius:50%;
-      width:40px;
-      height:40px;
-      font-size:18px;
+      width:32px;
+      height:32px;
+      font-size:16px;
       cursor:pointer;
-      z-index:999;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -35,11 +34,9 @@
 </head>
 
 <body>
-  <!-- White-circle back-arrow -->
-  <button class="back-btn" onclick="history.back()" aria-label="Go Back">&#8592;</button>
-
   <!-- LOGIN CARD -->
   <div class="card">
+    <button class="back-btn" onclick="history.back()" aria-label="Go Back">&#8592;</button>
     <h1>Log In</h1>
 
     <form id="loginForm" onsubmit="return checkConsent()">
@@ -58,10 +55,10 @@
       function checkConsent() {
         if (!document.getElementById('agreeLogin').checked) {
           alert('Please accept the Privacy Policy to continue.');
-          return false;               // stop submission
+          return false;
         }
-        alert('Demo login success');  // replace with real logic later
-        return false;                 // demo only
+        alert('Demo login success');
+        return false;
       }
     </script>
 
