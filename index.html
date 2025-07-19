@@ -8,22 +8,26 @@
     body{margin:0;font-family:system-ui;background:url('hero.jpg') center/cover fixed;color:#fff}
     section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;text-shadow:0 0 4px #000}
     .btn{background:#ff4d94;color:#fff;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:bold;margin-top:20px}
-    #how{background:#fff;color:#333;padding:60px 20px}
   </style>
 </head>
 
 <body>
-  <!-- TOP-RIGHT SIGN-IN -->
-  <button onclick="showLoginOptions()"
-          style="position:fixed;top:20px;right:20px;background:#fff;color:#ff4d94;border:none;padding:8px 16px;border-radius:20px;font-weight:bold;cursor:pointer;z-index:100;">
-    Sign In
-  </button>
+  <!-- TOP-RIGHT SIGN-IN LOGO -->
+  <img src="login-logo.jpg" alt="Sign In"
+       onclick="showLoginOptions()"
+       style="position:fixed;top:20px;right:20px;height:40px;cursor:pointer;z-index:100;border-radius:50%;">
 
   <!-- HERO -->
   <section>
     <h1>Make a private countdown for your special day</h1>
     <p>“Every second together is a frame of forever.”</p>
     <a href="create.html" class="btn">Create yours now</a>
+  </section>
+
+  <!-- SCROLLABLE SECTION -->
+  <section style="padding:60px 20px;text-align:center;background:#fff;color:#333;">
+    <h2>How it works in 30 seconds</h2>
+    <p>1) Pick date &nbsp; 2) Upload photo &nbsp; 3) Get countdown link</p>
   </section>
 
   <!-- LOGIN POP-UP -->
@@ -41,10 +45,5 @@
     function showLoginOptions() { document.getElementById('loginOptions').style.display='block'; }
     function hideLogin()        { document.getElementById('loginOptions').style.display='none';  }
   </script>
-</body>  <!-- SCROLLABLE SECTION -->
-  <section style="padding:60px 20px;text-align:center;background:#fff;color:#333;">
-    <h2>How it works in 30 seconds</h2>
-    <p>1) Pick date &nbsp; 2) Upload photo &nbsp; 3) Get countdown link</p>
-  </section>
 </body>
 </html>
