@@ -6,45 +6,71 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <style>
     body{margin:0;font-family:system-ui;background:url('ocean.jpg') center/cover fixed;color:#fff}
-    .card{background:rgba(0,0,0,.45);padding:40px;border-radius:12px;max-width:360px;margin:12vh auto 0;text-align:center}
+    .card{background:rgba(0,0,0,.45);padding:40px;border-radius:12px;max-width:360px;margin:12vh auto 0;text-align:center;position:relative}
     h1{margin-bottom:30px}
     input{width:100%;padding:10px;margin:8px 0;border:none;border-radius:6px}
     .btn{background:#ff4d94;color:#fff;border:none;padding:12px 28px;border-radius:30px;width:100%;cursor:pointer;font-weight:bold}
-    a{color:#fff}
     .togglePW{cursor:pointer;font-size:12px;color:#ccc;text-decoration:underline}
+    a{color:#fff}
+    /* Arrow inside the card */
+    .back-btn{
+      position:absolute;
+      top:10px;
+      left:10px;
+      background:#fff;
+      color:#333;
+      border:none;
+      border-radius:50%;
+      width:32px;
+      height:32px;
+      font-size:16px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
   </style>
 </head>
-<body>
-  <button onclick="history.back()" style="position:fixed;top:20px;left:20px;background:none;border:1px solid #fff;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;z-index:999;">← Back</button>
 
+<body>
   <div class="card">
+    <button class="back-btn" onclick="history.back()" aria-label="Go Back">&#8592;</button>
     <h1>Sign Up</h1>
-    <form onsubmit="event.preventDefault();alert('Demo sign-up success');">
+
+    <form id="signupForm" onsubmit="return checkConsent()">
       <input type="text"    placeholder="First Name" required />
       <input type="text"    placeholder="Last Name"  required />
       <input type="email"   placeholder="Email"      required />
-      <input type="password" id="pw" placeholder="Password" required />
+      <input type="password" id="pw"  placeholder="Password" required />
       <span class="togglePW" onclick="toggle('pw')">Show</span>
-
       <input type="password" id="cpw" placeholder="Confirm Password" required />
       <span class="togglePW" onclick="toggle('cpw')">Show</span>
 
-      <label style="display:flex;align-items:center;font-size:14px">
-        <input type="checkbox" style="width:auto;margin-right:6px" required> I agree with privacy and policy
+      <label style="display:flex;align-items:center;font-size:14px;margin:10px 0">
+        <input type="checkbox" id="agreeSignup" required>
+        I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a>
       </label>
 
       <button type="submit" class="btn">Sign Up</button>
     </form>
 
+    <script>
+      function checkConsent() {
+        if (!document.getElementById('agreeSignup').checked) {
+          alert('Please accept the Privacy Policy to create an account.');
+          return false;
+        }
+        alert('Demo sign-up success');
+        return false;
+      }
+      function toggle(id){
+        const el=document.getElementById(id);
+        el.type = (el.type === 'password') ? 'text' : 'password';
+        event.target.textContent = el.type === 'password' ? 'Show' : 'Hide';
+      }
+    </script>
+
     <p style="margin-top:20px">Already have an account? <a href="login.html">Sign in</a></p>
   </div>
-
-  <script>
-    function toggle(id){
-      const el=document.getElementById(id);
-      el.type = (el.type === 'password') ? 'text' : 'password';
-      event.target.textContent = el.type === 'password' ? 'Show' : 'Hide';
-    }
-  </script>
 </body>
 </html>
