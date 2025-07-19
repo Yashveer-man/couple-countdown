@@ -11,15 +11,34 @@
     #how{background:#fff;color:#333;padding:60px 20px}
   </style>
 </head>
-<body>
-  <section>
+<body style="margin:0;font-family:system-ui;background:url('hero.jpg') center/cover fixed;color:#fff">
+  <!-- HERO -->
+  <section style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;text-shadow:0 0 4px #000">
     <h1>Make a private countdown for your special day</h1>
     <p>“Every second together is a frame of forever.”</p>
     <a href="create.html" class="btn">Create yours now</a>
+
+    <!-- LOGIN BUTTON -->
+    <div style="margin-top:30px">
+      <button onclick="showLoginOptions()" style="background:#fff;color:#ff4d94;border:none;padding:10px 24px;border-radius:30px;font-weight:bold;cursor:pointer">Sign In</button>
+    </div>
   </section>
-  <section id="how">
-    <h2>How it works in 30 seconds</h2>
-    <p>1) Pick date &nbsp; 2) Upload photo &nbsp; 3) Get countdown link</p>
-  </section>
+
+  <!-- LOGIN POP-UP -->
+  <div id="loginOptions" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:99">
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#333;padding:30px;border-radius:12px;min-width:260px">
+      <button onclick="hideLogin()" style="float:right;border:none;background:none;font-size:20px;cursor:pointer">&times;</button>
+      <h3 style="margin-top:0">Choose sign-in method</h3>
+      <button class="login-option" style="width:100%;margin:6px 0;padding:10px;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer">Email</button>
+      <button class="login-option" style="width:100%;margin:6px 0;padding:10px;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer">OTP</button>
+      <button class="login-option" style="width:100%;margin:6px 0;padding:10px;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer">Guest</button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    function showLoginOptions() { document.getElementById('loginOptions').style.display='block'; }
+    function hideLogin()        { document.getElementById('loginOptions').style.display='none';  }
+  </script>
 </body>
 </html>
