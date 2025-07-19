@@ -13,41 +13,57 @@
     .social{margin-top:20px}
     .social img{height:32px;margin:0 8px;cursor:pointer}
     a{color:#fff}
+    /* White-circle back-arrow */
+    .back-btn{
+      position:fixed;
+      top:20px;
+      left:20px;
+      background:#fff;
+      color:#333;
+      border:none;
+      border-radius:50%;
+      width:40px;
+      height:40px;
+      font-size:18px;
+      cursor:pointer;
+      z-index:999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
   </style>
 </head>
 
 <body>
-  <!-- BACK BUTTON -->
- <button onclick="history.back()"
-        style="position:fixed;top:20px;left:20px;background:none;border:1px solid #fff;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;z-index:999;">
-  ← Back
-</button>
+  <!-- White-circle back-arrow -->
+  <button class="back-btn" onclick="history.back()" aria-label="Go Back">&#8592;</button>
 
   <!-- LOGIN CARD -->
   <div class="card">
     <h1>Log In</h1>
-   <form id="loginForm" onsubmit="return checkConsent()">
-  <input type="text"    placeholder="Username" required />
-  <input type="password" placeholder="Password" required />
 
-  <label style="display:flex;align-items:center;font-size:14px;margin:10px 0">
-    <input type="checkbox" id="agreeLogin" style="width:auto;margin-right:6px">
-    I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a>
-  </label>
+    <form id="loginForm" onsubmit="return checkConsent()">
+      <input type="text"    placeholder="Username" required />
+      <input type="password" placeholder="Password" required />
 
-  <button type="submit" class="btn">Log in</button>
-</form>
+      <label style="display:flex;align-items:center;font-size:14px;margin:10px 0">
+        <input type="checkbox" id="agreeLogin" style="width:auto;margin-right:6px">
+        I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a>
+      </label>
 
-<script>
-  function checkConsent() {
-    if (!document.getElementById('agreeLogin').checked) {
-      alert('Please accept the Privacy Policy to continue.');
-      return false;               // stop submission
-    }
-    alert('Demo login success');  // replace with real logic later
-    return false;                 // demo only
-  }
-</script>
+      <button type="submit" class="btn">Log in</button>
+    </form>
+
+    <script>
+      function checkConsent() {
+        if (!document.getElementById('agreeLogin').checked) {
+          alert('Please accept the Privacy Policy to continue.');
+          return false;               // stop submission
+        }
+        alert('Demo login success');  // replace with real logic later
+        return false;                 // demo only
+      }
+    </script>
 
     <div class="social">
       <p>Or sign in with</p>
