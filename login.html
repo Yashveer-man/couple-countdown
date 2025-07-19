@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Login – Couple Countdown</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{margin:0;font-family:system-ui;background:url('ocean.jpg') center/cover fixed;color:#fff}
+    .card{background:rgba(0,0,0,.45);padding:40px;border-radius:12px;max-width:360px;margin:12vh auto 0;text-align:center}
+    h1{margin-bottom:30px}
+    input{width:100%;padding:10px;margin:8px 0;border:none;border-radius:6px}
+    .btn{background:#ff4d94;color:#fff;border:none;padding:12px 28px;border-radius:30px;width:100%;cursor:pointer;font-weight:bold}
+    .social{margin-top:20px}
+    .social img{height:32px;margin:0 8px;cursor:pointer}
+    a{color:#fff}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Log In</h1>
+    <form onsubmit="event.preventDefault();alert('Demo login success');">
+      <input type="text"    placeholder="Username" required />
+      <input type="password" placeholder="Password" required />
+      <label style="display:flex;align-items:center;font-size:14px">
+        <input type="checkbox" style="width:auto;margin-right:6px"> Remember me
+      </label>
+      <a href="#" style="font-size:12px;margin-bottom:20px;display:block">Forgot Password?</a>
+      <button type="submit" class="btn">Log in</button>
+    </form>
+
+    <div class="social">
+      <p>Or sign in with</p>
+      <img src="google.png"  alt="Google" onclick="alert('Google login demo')">
+      <img src="facebook.png" alt="Facebook" onclick="alert('Facebook login demo')">
+    </div>
+
+    <p style="margin-top:20px">Don’t have an account? <a href="signup.html">Sign up</a></p>
+  </div>
+</body>
+</html>
