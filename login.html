@@ -16,9 +16,16 @@
   </style>
 </head>
 <body>
+
+  <!-- BACK BUTTON (fixed to the top-left of the screen) -->
+  <button onclick="history.back()"
+          style="position:fixed;top:20px;left:20px;background:none;border:1px solid #fff;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;z-index:999;">
+    ← Back
+  </button>
+
+  <!-- LOGIN CARD -->
   <div class="card">
-   <h1>Log In</h1>
-<button onclick="history.back()" style="position:absolute;top:12px;left:12px;background:none;border:1px solid #fff;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;">← Back</button>
+    <h1>Log In</h1>
     <form onsubmit="event.preventDefault();alert('Demo login success');">
       <input type="text"    placeholder="Username" required />
       <input type="password" placeholder="Password" required />
@@ -31,10 +38,12 @@
 
     <div class="social">
       <p>Or sign in with</p>
-<img src="google.jpg"  alt="Google"  onclick="alert('Google login demo')"  style="height:32px;margin:0 8px;cursor:pointer;border-radius:4px;">
-<img src="facebook.jpg" alt="Facebook" onclick="alert('Facebook login demo')" style="height:32px;margin:0 8px;cursor:pointer;border-radius:4px;">
+      <img src="google.jpg"  alt="Google"  onclick="alert('Google login demo')"  style="height:32px;margin:0 8px;cursor:pointer;border-radius:4px;">
+      <img src="facebook.jpg" alt="Facebook" onclick="alert('Facebook login demo')" style="height:32px;margin:0 8px;cursor:pointer;border-radius:4px;">
+    </div>
 
     <p style="margin-top:20px">Don’t have an account? <a href="signup.html">Sign up</a></p>
   </div>
+
 </body>
 </html>
