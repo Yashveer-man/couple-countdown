@@ -1,20 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <title>Couple Countdown Calendar ❤️</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <title>Our Love Journey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 100vh;
+      width: 100vw;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+      font-family: 'Quicksand', 'Segoe UI', sans-serif;
+      transition: background 2s ease;
+      background: #fde8f3;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('hero.jpg') center center/cover no-repeat;
+      z-index: 1;
+      transition: opacity 2s ease;
+      opacity: 1;
+    }
+    .lover-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 3px 12px #b35f8e, 0 0 20px #fff9;
+      font-size: 2em;
+      line-height: 1.2;
+      opacity: 1;
+      transition: opacity 2s ease;
+    }
+    .white-reveal {
+      background: #fff !important;
+    }
+    .hide-hero {
+      opacity: 0 !important;
+      pointer-events: none;
+    }
+    .lover-content-hide {
+      opacity: 0 !important;
+      pointer-events: none;
+    }
+    .after-message {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 3;
+      text-align: center;
+      color: #b35f8e;
+      font-size: 2.1em;
+      font-weight: bold;
+    }
+    .show-after {
+      display: block !important;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 700px) {
+      .lover-content, .after-message {
+        font-size: 1.1em;
+        padding: 0 2vw;
+      }
+    }
+  </style>
 </head>
 <body>
-  <section id="hero">
-    <h1>Make a private countdown for your special day</h1>
-    <p>“Every second together is a frame of forever.”</p>
-    <a href="create.html" class="btn">Create yours now</a>
-  </section>
-  <section id="how">
-    <h2>How it works in 30 seconds</h2>
-    <p>1) Pick date &nbsp; 2) Upload photo &nbsp; 3) Get countdown link</p>
-  </section>
+  <div class="hero-bg"></div>
+  <div class="lover-content">
+    <div>
+      <span>Counting the Days Until Forever</span>
+      <br>
+      <small style="font-size:0.6em;">Every sunrise brings us closer to our special day.</small>
+      <br><br>
+      <span style="font-size: 1.2em; font-weight: 400;">Priya & Arjun</span>
+    </div>
+  </div>
+  <div class="after-message">
+    ❤️ With every moment, our love story unfolds... ❤️
+  </div>
+  <script>
+    // Transition to white after 4 seconds, or you could use scroll event
+    setTimeout(function() {
+      document.body.classList.add('white-reveal');
+      document.querySelector('.hero-bg').classList.add('hide-hero');
+      document.querySelector('.lover-content').classList.add('lover-content-hide');
+      document.querySelector('.after-message').classList.add('show-after');
+    }, 4000);
+  </script>
 </body>
 </html>
+
