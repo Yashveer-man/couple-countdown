@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Sign Up – Couple Countdown</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <style>
+    body{margin:0;font-family:system-ui;background:url('ocean.jpg') center/cover fixed;color:#fff}
+    .card{background:rgba(0,0,0,.45);padding:40px;border-radius:12px;max-width:360px;margin:12vh auto 0;text-align:center}
+    h1{margin-bottom:30px}
+    input{width:100%;padding:10px;margin:8px 0;border:none;border-radius:6px}
+    .btn{background:#ff4d94;color:#fff;border:none;padding:12px 28px;border-radius:30px;width:100%;cursor:pointer;font-weight:bold}
+    a{color:#fff}
+    .togglePW{cursor:pointer;font-size:12px;color:#ccc;text-decoration:underline}
+  </style>
+</head>
+<body>
+  <button onclick="history.back()" style="position:fixed;top:20px;left:20px;background:none;border:1px solid #fff;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;z-index:999;">← Back</button>
+
+  <div class="card">
+    <h1>Sign Up</h1>
+    <form onsubmit="event.preventDefault();alert('Demo sign-up success');">
+      <input type="text"    placeholder="First Name" required />
+      <input type="text"    placeholder="Last Name"  required />
+      <input type="email"   placeholder="Email"      required />
+      <input type="password" id="pw" placeholder="Password" required />
+      <span class="togglePW" onclick="toggle('pw')">Show</span>
+
+      <input type="password" id="cpw" placeholder="Confirm Password" required />
+      <span class="togglePW" onclick="toggle('cpw')">Show</span>
+
+      <label style="display:flex;align-items:center;font-size:14px">
+        <input type="checkbox" style="width:auto;margin-right:6px" required> I agree with privacy and policy
+      </label>
+
+      <button type="submit" class="btn">Sign Up</button>
+    </form>
+
+    <p style="margin-top:20px">Already have an account? <a href="login.html">Sign in</a></p>
+  </div>
+
+  <script>
+    function toggle(id){
+      const el=document.getElementById(id);
+      el.type = (el.type === 'password') ? 'text' : 'password';
+      event.target.textContent = el.type === 'password' ? 'Show' : 'Hide';
+    }
+  </script>
+</body>
+</html>
