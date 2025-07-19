@@ -1,18 +1,38 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
   <title>Privacy Policy – Couple Countdown</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <style>
     body{margin:0;font-family:system-ui;background:url('ocean.jpg') center/cover fixed;color:#fff}
-    .content{background:rgba(0,0,0,.45);padding:40px;border-radius:12px;max-width:700px;margin:12vh auto 0;color:#fff;line-height:1.6}
+    .card{background:rgba(0,0,0,.45);padding:40px;border-radius:12px;max-width:700px;margin:12vh auto 0;color:#fff;line-height:1.6;position:relative}
     h1,h2{margin-top:0}
     a{color:#ff4d94}
+    /* Arrow inside the card */
+    .back-btn{
+      position:absolute;
+      top:10px;
+      left:10px;
+      background:#fff;
+      color:#333;
+      border:none;
+      border-radius:50%;
+      width:32px;
+      height:32px;
+      font-size:16px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
   </style>
 </head>
+
 <body>
-  <div class="content">
+  <div class="card">
+    <button class="back-btn" onclick="history.back()" aria-label="Go Back">&#8592;</button>
+
     <h1>Privacy Policy</h1>
     <p><strong>Last Updated: July 20, 2025</strong></p>
 
