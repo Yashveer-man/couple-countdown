@@ -26,15 +26,28 @@
   <!-- LOGIN CARD -->
   <div class="card">
     <h1>Log In</h1>
-    <form onsubmit="event.preventDefault();alert('Demo login success');">
-      <input type="text"    placeholder="Username" required />
-      <input type="password" placeholder="Password" required />
-      <label style="display:flex;align-items:center;font-size:14px">
-        <input type="checkbox" style="width:auto;margin-right:6px"> Remember me
-      </label>
-      <a href="#" style="font-size:12px;margin-bottom:20px;display:block">Forgot Password?</a>
-      <button type="submit" class="btn">Log in</button>
-    </form>
+   <form id="loginForm" onsubmit="return checkConsent()">
+  <input type="text"    placeholder="Username" required />
+  <input type="password" placeholder="Password" required />
+
+  <label style="display:flex;align-items:center;font-size:14px;margin:10px 0">
+    <input type="checkbox" id="agreeLogin" style="width:auto;margin-right:6px">
+    I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a>
+  </label>
+
+  <button type="submit" class="btn">Log in</button>
+</form>
+
+<script>
+  function checkConsent() {
+    if (!document.getElementById('agreeLogin').checked) {
+      alert('Please accept the Privacy Policy to continue.');
+      return false;               // stop submission
+    }
+    alert('Demo login success');  // replace with real logic later
+    return false;                 // demo only
+  }
+</script>
 
     <div class="social">
       <p>Or sign in with</p>
