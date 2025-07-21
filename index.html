@@ -101,65 +101,13 @@
   </section>
   <!-- ╚══════════════════════════════╝ -->
 
-  <!-- ╔════════════ Demo ════════════╗ -->
+  <!-- ╔════════════ Demo (screenshot) ════════════╗ -->
   <section id="demo" class="px-4 py-20">
     <h3 class="text-xl font-bold text-white mb-4">Live Demo</h3>
-
-    <!-- Flip-Clock Container (desktop ≥640px) -->
-    <div class="hidden sm:block mx-auto max-w-sm bg-[#331a25] rounded-xl p-6 text-center">
-      <div id="flipDemo" class="flip-clock"></div>
-    </div>
-
-    <!-- Progress Bar Container (mobile <640px) -->
-    <div class="block sm:hidden mx-auto max-w-sm bg-[#331a25] rounded-xl p-6">
-      <div class="w-full bg-[#472434] rounded h-2 overflow-hidden mb-4">
-        <div id="progressBar" class="h-full bg-[#e9297f]" style="width:0%"></div>
-      </div>
-      <div id="progressTimer" class="text-white text-center font-bold"></div>
-    </div>
-
-    <!-- FlipClock.js CSS/JS -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
-
-    <!-- Hybrid Countdown Script -->
-    <script>
-      (function(){
-        const target = Date.now() + 7 * 24 * 60 * 60 * 1000;
-        const start = target - 7 * 24 * 60 * 60 * 1000;
-
-        // Flip-Clock
-        const flipClock = new FlipClock(document.getElementById('flipDemo'), {
-          clockFace: 'DailyCounter',
-          autoStart: false
-        });
-        (function updateFlip(){
-          const secs = Math.max(0, Math.round((target - Date.now())/1000));
-          flipClock.setTime(secs);
-          flipClock.start();
-          if(secs>0) setTimeout(updateFlip,1000);
-        })();
-
-        // Progress Bar
-        function updateProgress(){
-          const now = Date.now();
-          const pct = Math.min(100, Math.max(0,(now - start)/(target - start)*100));
-          document.getElementById('progressBar').style.width = pct+'%';
-          const diff = target - now;
-          if(diff<=0){
-            document.getElementById('progressTimer').textContent = '🎉 It’s here!';
-          } else {
-            const d=Math.floor(diff/864e5),h=Math.floor((diff%864e5)/36e5),m=Math.floor((diff%36e5)/6e4);
-            document.getElementById('progressTimer').textContent = `${d}d ${h}h ${m}m`;
-            requestAnimationFrame(updateProgress);
-          }
-        }
-        updateProgress();
-      })();
-    </script>
+    <div class="aspect-[3/2] bg-cover bg-center rounded-xl"
+         style="background-image:url('demo-preview.jpg')"></div>
   </section>
-  <!-- ╚════════════════════════════════╝ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
 
   <!-- ╔════════════ FAQ ════════════╗ -->
   <section id="faq" class="px-4 py-20 space-y-3">
@@ -197,6 +145,5 @@
     </a>
   </footer>
   <!-- ╚════════════════════════════════╝ -->
-
 </body>
 </html>
