@@ -1,87 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;700;800">
+
   <title>Couple Countdown ❤️</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <style>
-    body{margin:0;font-family:system-ui;background:url('lover.jpg') center/cover fixed;color:#fff}
-    section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;text-shadow:0 0 4px #000}
-    .btn{background:#ff4d94;color:#fff;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:bold;margin-top:20px}
-  </style>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+  <!-- Tailwind (with forms & container-queries plugins) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
 
-<body>
-  <!-- TOP-RIGHT SIGN-IN LOGO -->
-  <img src="login-logo.jpg" alt="Sign In"
-       onclick="location.href='login.html'"
-       style="position:fixed;top:20px;right:20px;height:40px;cursor:pointer;z-index:100;border-radius:50%;">
+<body class="min-h-screen flex flex-col bg-[#221119] overflow-x-hidden"
+      style="font-family:'Plus Jakarta Sans','Noto Sans',sans-serif">
 
-  <!-- HERO -->
-  <section>
-    <h1>Make a private countdown for your special day</h1>
-    <p>“Every second together is a frame of forever.”</p>
-    <a href="create.html" class="btn">Create yours now</a>
-  </section>
+  <!-- ╔════════════ Header ════════════╗ -->
+  <header class="flex items-center justify-between border-b border-[#472434] px-10 py-3">
+    <div class="flex items-center gap-4 text-white">
+      <svg class="w-4 h-4" viewBox="0 0 48 48" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd"
+        d="M12.08 24 4 19.25 9.96 8.75l8.08 4.74.01-9.5h11.91l.01 9.5 8.09-4.74L44 19.25 35.92 24 44 28.75l-5.96 10.5-8.09-4.74-.01 9.49H18.04l-.01-9.49-8.08 4.74L4 28.75 12.08 24Z"/></svg>
+      <h1 class="text-lg font-bold">Couple Countdown</h1>
+    </div>
 
-  <!-- SECTION 1 – How it works -->
-  <section style="padding:60px 20px;text-align:center;background:#fff;color:#333;">
-    <h2>How it works in 30 seconds</h2>
-    <p>1) Pick date &nbsp; 2) Upload photo &nbsp; 3) Get countdown link</p>
-  </section>
+    <nav class="flex items-center gap-9 text-white">
+      <a class="text-sm font-medium" href="#features">Features</a>
+      <a class="text-sm font-medium" href="#demo">Demo</a>
+      <a class="text-sm font-medium" href="#faq">FAQ</a>
+    </nav>
 
-  <!-- SECTION 2 – Features -->
-  <section style="padding:80px 20px;text-align:center;background:#f9f9f9;color:#333;">
-    <h2>What Makes It Special</h2>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin-top:40px;">
-      <div style="max-width:240px">
-        <img src="icon-private.png" alt="Private" style="width:60px">
-        <p><strong>100 % Private</strong><br>Only people with the link can see your countdown.</p>
-      </div>
-      <div style="max-width:240px">
-        <img src="icon-mobile.png" alt="Mobile" style="width:60px">
-        <p><strong>Works Everywhere</strong><br>Looks perfect on phones, tablets & desktops.</p>
-      </div>
-      <div style="max-width:240px">
-        <img src="icon-forever.png" alt="Forever" style="width:60px">
-        <p><strong>Forever Yours</strong><br>Pay once, keep it forever. No ads, no spam.</p>
-      </div>
+    <!-- keeps old login pop-up untouched -->
+    <a href="login.html" aria-label="Login"
+       class="rounded-full h-10 w-10 bg-[#472434] grid place-items-center text-white">
+       <!-- user icon -->
+       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 10-73.66 0C63.78 166.78 40.31 185.66 25.08 212a8 8 0 1013.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1013.85-8zM72 96a56 56 0 11112 0 56 56 0 01-112 0z"/>
+       </svg>
+    </a>
+  </header>
+  <!-- ╚════════════════════════════════╝ -->
+
+  <!-- ╔════════════ Hero ════════════╗ -->
+  <section class="flex-1 flex items-center justify-center px-4 py-10"
+           style="background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.4)),
+                    url('hero.jpg');background-size:cover;background-position:center">
+    <div class="text-center max-w-2xl space-y-4">
+      <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">
+        Celebrate Every Moment with Your Partner
+      </h2>
+      <p class="text-sm md:text-base text-white">
+        Couple Countdown helps you track and cherish every special occasion in your relationship.
+      </p>
+      <a href="create.html"
+         class="inline-flex h-12 items-center justify-center rounded-full bg-[#e9297f] px-6 font-bold text-white">
+        Get Started
+      </a>
     </div>
   </section>
+  <!-- ╚══════════════════════════════╝ -->
 
-  <!-- SECTION 3 – Live Demo -->
-  <section style="padding:80px 20px;text-align:center;background:#fff;color:#333;">
-    <h2>See It in Action</h2>
-    <img src="demo-preview.png" alt="Demo" style="max-width:320px;width:100%;border-radius:12px;margin-top:20px">
-    <p style="margin-top:20px">Live countdown for Alex & Jamie’s 5-year anniversary → <a href="create.html" style="color:#ff4d94">Create yours now</a></p>
-  </section>
+  <!-- ╔════════════ Features ════════════╗ -->
+  <section id="features" class="px-4 py-20 space-y-10 container mx-auto">
+    <header class="space-y-2 max-w-2xl">
+      <h3 class="text-3xl md:text-4xl font-bold text-white">Features</h3>
+      <p class="text-white">A range of tools designed to keep your celebrations on track and full of love.</p>
+    </header>
 
-  <!-- SECTION 4 – FAQ -->
-  <section style="padding:80px 20px;text-align:center;background:#f9f9f9;color:#333;">
-    <h2>Questions?</h2>
-    <details style="max-width:600px;margin:15px auto;text-align:left">
-      <summary style="font-weight:bold;cursor:pointer">Is my photo safe?</summary>
-      <p>Yes. Images are stored securely and never shared publicly unless you share the link yourself.</p>
-    </details>
-    <details style="max-width:600px;margin:15px auto;text-align:left">
-      <summary style="font-weight:bold;cursor:pointer">Can I edit later?</summary>
-      <p>Absolutely. Create a free account after checkout and edit date, photo or message any time.</p>
-    </details>
-  </section>
-  <!-- LOGIN POP-UP -->
-  <div id="loginOptions" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:99">
-    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#333;padding:30px;border-radius:12px;min-width:260px">
-      <button onclick="hideLogin()" style="float:right;border:none;background:none;font-size:20px;cursor:pointer">&times;</button>
-      <h3>Choose sign-in method</h3>
-      <button class="login-option" style="width:100%;margin:6px 0;padding:10px;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer">Email</button>
-      <button class="login-option" style="width:100%;margin:6px 0;padding:10px;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer">OTP</button>
-      <button class="login-option" style="width:100%;margin:6px 0;padding:10px;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer">Guest</button>
+    <div class="grid gap-3 md:grid-cols-3">
+      <article class="rounded-lg border border-[#66334a] bg-[#331a25] p-4 space-y-2">
+        <h4 class="text-white font-bold flex items-center gap-2">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 256 256"><path
+            d="M208 32H184V24a8 8 0 00-16 0v8H88V24a8 8 0 00-16 0v8H48A16 16 0 0032 48V208a16 16 0 0016 16H208a16 16 0 0016-16V48a16 16 0 00-16-16zM72 48v8a8 8 0 0016 0V48h80v8a8 8 0 0016 0V48h24V80H48V48zM208 208H48V96H208V208z"/></svg>
+          Countdown Timers
+        </h4>
+        <p class="text-[#c892ab] text-sm">Create timers for anniversaries, birthdays and more.</p>
+      </article>
+
+      <article class="rounded-lg border border-[#66334a] bg-[#331a25] p-4 space-y-2">
+        <h4 class="text-white font-bold flex items-center gap-2">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 256 256"><path
+            d="M221.8 175.94C216.25 166.38 208 139.33 208 104a80 80 0 10-160 0c0 35.34-8.26 62.38-13.81 71.94A16 16 0 0048 200H88.8a40 40 0 0078.4 0H208a16 16 0 0013.8-24.06zM128 216a24 24 0 01-22.62-16h45.24A24 24 0 01128 216zM48 184c7.7-13.24 16-43.92 16-80a64 64 0 11128 0c0 36.05 8.28 66.73 16 80z"/></svg>
+          Notifications
+        </h4>
+        <p class="text-[#c892ab] text-sm">Timely reminders so you never miss an important date.</p>
+      </article>
+
+      <article class="rounded-lg border border-[#66334a] bg-[#331a25] p-4 space-y-2">
+        <h4 class="text-white font-bold flex items-center gap-2">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 256 256"><path
+            d="M178 32c-20.65 0-38.73 8.88-50 23.89C116.73 40.88 98.65 32 78 32A62.07 62.07 0 0016 94c0 70 103.79 126.66 108.21 129a8 8 0 007.58 0C136.21 220.66 240 164 240 94a62.07 62.07 0 00-62-62zm-50 174.8C109.74 196.16 32 147.69 32 94a46.06 46.06 0 0146-46c19.45 0 35.78 10.36 42.6 27a8 8 0 0014.8 0c6.82-16.67 23.15-27 42.6-27a46.06 46.06 0 0146 46c0 53.61-77.76 102.15-96 112.8z"/></svg>
+          Personalized Reminders
+        </h4>
+        <p class="text-[#c892ab] text-sm">Add heartfelt messages and special touches.</p>
+      </article>
     </div>
-  </div>
+  </section>
+  <!-- ╚══════════════════════════════╝ -->
 
-  <script>
-    function showLoginOptions() { document.getElementById('loginOptions').style.display='block'; }
-    function hideLogin()        { document.getElementById('loginOptions').style.display='none';  }
-  </script>
+  <!-- ╔════════════ Demo (screenshot) ════════════╗ -->
+  <section id="demo" class="px-4 py-20">
+    <h3 class="text-xl font-bold text-white mb-4">Live Demo</h3>
+    <div class="aspect-[3/2] bg-cover bg-center rounded-xl"
+         style="background-image:url('demo-preview.jpg')"></div>
+  </section>
+  <!-- ╚══════════════════════════════════════════╝ -->
+
+  <!-- ╔════════════ FAQ ════════════╗ -->
+  <section id="faq" class="px-4 py-20 space-y-3">
+    <h3 class="text-xl font-bold text-white">Frequently Asked Questions</h3>
+
+    <details class="rounded-xl bg-[#472434] px-4 py-2 text-white" open>
+      <summary class="cursor-pointer py-2 font-medium">How do I create a countdown?</summary>
+      <p class="text-[#c892ab] pb-2">
+        Sign up, click “Add Countdown”, choose a date and you’re done!
+      </p>
+    </details>
+
+    <details class="rounded-xl bg-[#472434] px-4 py-2 text-white">
+      <summary class="cursor-pointer py-2 font-medium">Can I customize notifications?</summary>
+      <p class="text-[#c892ab] pb-2">
+        Yes — set reminder times and custom messages from your dashboard.
+      </p>
+    </details>
+
+    <details class="rounded-xl bg-[#472434] px-4 py-2 text-white">
+      <summary class="cursor-pointer py-2 font-medium">Is my data private?</summary>
+      <p class="text-[#c892ab] pb-2">
+        Absolutely. Only people with your private link can view a countdown.
+      </p>
+    </details>
+  </section>
+  <!-- ╚══════════════════════════════╝ -->
+
+  <!-- ╔════════════ Footer CTA ════════════╗ -->
+  <footer class="px-4 py-20 text-center space-y-6">
+    <h3 class="text-3xl font-bold text-white">Ready to Make Every Moment Count?</h3>
+    <a href="create.html"
+       class="inline-flex h-12 items-center justify-center rounded-full bg-[#e9297f] px-6 font-bold text-white">
+      Get Started
+    </a>
+  </footer>
+  <!-- ╚════════════════════════════════╝ -->
 </body>
 </html>
